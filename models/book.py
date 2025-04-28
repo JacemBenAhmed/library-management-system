@@ -31,6 +31,20 @@ class Book(models.Model):
                                  ('children_book', 'Children Book'), ('fiction', 'Fiction'), ('adventure', 'Adventure'),
                                  ('educational', 'Educational')])
 
+    #Vulnerability **
+    @api.model
+    def search_books(self, search_term):
+    """Vulnerable to SQL injection"""
+    query = "SELECT id FROM library_book WHERE title = '%s'" % search_term
+    self.env.cr.execute(query)
+    return self.env.cr.fetchall()
+
+    #
+    def connect_to_external_db(self):
+    db_password = 'SuperSecret123!'  # Hardcoded password
+    # ... connection logic ...
+
+
     @api.constrains('book_stock')
     def _compute_nb_book_available(self):
         """
