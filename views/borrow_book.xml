@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_library_borrow_book" model="ir.actions.act_window">
+        <field name="name">Borrow Book</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">library.borrow.book</field>
+        <field name="view_mode">tree,kanban,form,graph</field>
+    </record>
+
+    <menuitem
+            id="menu_library_borrow_book"
+            parent="menu_library_root"
+            name="Borrow Book"
+            action="action_library_borrow_book"
+            sequence="50"/>
+
+
+    <record id="library_borrow_book_view_form" model="ir.ui.view">
+        <field name="name">library.book.borrow.form</field>
+        <field name="model">library.borrow.book</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_borrow_book" type="object" class="btn btn-secondary" string="Borrow The Book"
+                    attrs="{'invisible':['|', ('states', '==', 'borrowed'), '|', ('states', '==', 'overdue'), ('states', '==', 'returned')]}"/>
+                    <button name="action_return_book" type="object" class="btn btn-secondary" string="Return The Book"
+                    attrs="{'invisible':['|', ('states', '==', 'draft'), ('states', '==', 'returned')]}"/>
+                    <field name="states" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg-color="text-bg-danger"
+                            attrs="{'invisible':[('active', '=', True)]}"/>
+                    <div class="oe_title">
+                        <label for="ref"/>
+                        <h1>
+                            <field name="ref"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Book Details">
+                            <field name="book_id" domain="[('nb_book_available', '>' , 0)]"/>
+                            <field name="isbn"/>
+                            <field name="book_image" widget="image" style="width:100px;height:100px;margin-bottom:100px"/>
+                            <field name="user_id"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group string="Borrow Details ">
+                            <field name="date_from" attrs="{'readonly':[('active', '=', False)]}"/>
+                            <field name="date_to" attrs="{'readonly':[('active', '=', False)]}"/>
+                            <field name="return_date"/>
+                            <field name="nb_borrowed_day"/>
+                        </group>
+                        <group string="Member Details ">
+                            <field name="members_id" domain="[('states', '=', 'active')]"/>
+                            <field name="member_email"/>
+<!--                            <field name="member_membership_number"/>-->
+                            <field name="members_image" widget="image" style="width:200px;height:200px"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+     <record id="library_borrow_book_view_tree" model="ir.ui.view">
+        <field name="name">library.book.tree</field>
+        <field name="model">library.borrow.book</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="book_id"/>
+                <field name="isbn"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="user_id" widget="many2one_avatar"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+     <record id="states_overdue" model="ir.cron">
+        <field name="name">states.overdue</field>
+        <field name="model_id" ref="model_library_borrow_book"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">1</field>
+        <field name="code">
+            model.states_overdue()
+        </field>
+    </record>
+
+
+</odoo>

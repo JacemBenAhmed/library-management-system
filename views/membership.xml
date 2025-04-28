@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_membership_wizard_form" model="ir.ui.view">
+        <field name="name">Membership wizard Form</field>
+        <field name="model">library.membership</field>
+        <field name="arch" type="xml">
+            <form string="membership">
+                <header>
+                    <button name="action_renew_membership" type="object" class="btn btn-secondary" string="Renew Membership"
+                            attrs="{'invisible':[('states', '==', 'active')]}"/>
+                    <field name="states" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg-color="text-bg-danger"
+                            attrs="{'invisible':[('active', '=', True)]}"/>
+                    <div class="oe_title">
+                        <label for="ref"/>
+                        <h1>
+                            <field name="ref"/>
+                        </h1>
+                        <label for="membership_type"/>
+                        <h3>
+                            <field name="membership_type"/>
+                        </h3>
+                    </div>
+                    <group>
+                        <group string="Renewal Details">
+                            <field name="membership_number" attrs="{'readonly':[('membership_number_readonly', '==', 1)]}"/>
+                            <field name="membership_number_readonly" invisible="1"/>
+                            <field name="renewal_amount" readonly="1"/>
+                            <field name="member_id" attrs="{'readonly':[('membership_number_readonly', '==', 1)]}"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group string="Expiry Action">
+                            <field name="expiry_date"/>
+                            <field name="expiry_email"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="membership_view_tree" model="ir.ui.view">
+        <field name="name">membership.tree</field>
+        <field name="model">library.membership</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="member_id"/>
+                <field name="membership_number"/>
+                <field name="renewal_amount"/>
+                <field name="expiry_date"/>
+                <field name="expiry_email"/>
+                 <field name="states" decoration-success="states =='active'" decoration-info="states =='draft'" decoration-danger="states =='expired'" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_membership_states" model="ir.cron">
+        <field name="name">membership.states</field>
+        <field name="model_id" ref="model_library_membership"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">1</field>
+        <field name="code">
+            model.membership_states_cron()
+        </field>
+    </record>
+
+
+     <record id="action_membership" model="ir.actions.act_window">
+        <field name="name">Membership</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">library.membership</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+     <menuitem
+            id="menu_membership"
+            parent="menu_library_members"
+            name="Membership"
+            action="action_membership"
+            sequence="30"/>
+
+</odoo>

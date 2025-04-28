@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="member_view_form" model="ir.ui.view">
+        <field name="name">member.form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_block_member" type="object" class="btn btn-secondary" string="Block"
+                            attrs="{'invisible':[('states', '==', 'blocked')]}"/>
+                    <button name="action_unblock_member" type="object" class="btn btn-secondary" string="Unblock" groups="My_Library.library_manager_group"
+                            attrs="{'invisible':['|', ('states', '==', 'active'), ('states', '==', 'terminated')]}"/>
+                    <field name="states" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button name="action_open_borrowed_book" type="object" icon="fa-book">
+                            <div class="o_stat_info">
+                                <field name="nb_of_borrowed_book" class="o_stat_value"/>
+                                <span class="o_stat_text">Borrowed Book</span>
+                            </div>
+                        </button>
+                         <button name="action_open_membership" type="object" icon="fa-user">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Membership</span>
+                            </div>
+                        </button>
+                    </div>
+                    <group>
+                    <group string="General Info">
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="image_1920"/>
+                        <field name="user_id"/>
+                        <field name="nb_of_borrowed_book"/>
+                        <field name="nb_days_late"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="delay_penalty"/>
+                        </group>
+                        <group string="Membership Details">
+                            <field name="membership_id" invisible="1"/>
+                            <field name="membership_number"/>
+                            <field name="expiry_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="member_view_trees" model="ir.ui.view">
+        <field name="name">member.tree</field>
+        <field name="model">res.partner</field>
+        <field name="priority">1</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="nb_of_borrowed_book"/>
+                 <field name="states" decoration-success="states =='active'" decoration-info="states == 'terminated'" decoration-danger="states =='blocked'" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_member_mail" model="ir.cron">
+        <field name="name">member.mail</field>
+        <field name="model_id" ref="model_res_partner"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">1</field>
+        <field name="code">
+            model.send_mail()
+        </field>
+    </record>
+
+
+    <record id="action_member_block" model="ir.cron">
+        <field name="name">member.block</field>
+        <field name="model_id" ref="model_res_partner"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">1</field>
+        <field name="code">
+            model.member_block()
+        </field>
+    </record>
+
+     <record id="action_delay_penalty" model="ir.cron">
+        <field name="name">delay.penalty</field>
+        <field name="model_id" ref="model_res_partner"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">1</field>
+        <field name="code">
+            model.action_delay_penalty()
+        </field>
+    </record>
+
+     <record id="action_member_states" model="ir.cron">
+        <field name="name">member.membership.states</field>
+        <field name="model_id" ref="model_res_partner"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">1</field>
+        <field name="code">
+            model.member_membership_states()
+        </field>
+    </record>
+
+
+
+    <record id="action_penalty_mail" model="ir.cron">
+        <field name="name">penalty.mail</field>
+        <field name="model_id" ref="model_res_partner"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">1</field>
+        <field name="code">
+            model.penalty_mail()
+        </field>
+    </record>
+
+
+    <record id="action_membership_terminated" model="ir.cron">
+        <field name="name">membership.terminated</field>
+        <field name="model_id" ref="model_res_partner"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">1</field>
+        <field name="code">
+            model.membership_terminated()
+        </field>
+    </record>
+
+    <record id="action_nb_days_late" model="ir.cron">
+        <field name="name">nb.days.late</field>
+        <field name="model_id" ref="model_res_partner"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">1</field>
+        <field name="code">
+            model.fct_nb_days_late()
+        </field>
+    </record>
+
+
+
+    <record id="action_memberss" model="ir.actions.act_window">
+        <field name="name">Members</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="context">{'tree_view_ref': 'My_Library.member_view_trees',
+            'form_view_ref': 'My_Library.member_view_form'}</field>
+
+    </record>
+
+
+    <menuitem
+            id="menu_library_members"
+            parent="menu_library_root"
+            name="Members"
+            sequence="30"/>
+
+    <menuitem
+            id="menu__members"
+            parent="menu_library_members"
+            name="Members"
+            action="action_memberss"
+            sequence="10"/>
+
+
+</odoo>

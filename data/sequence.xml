@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_library_borrow_book_sequence" model="ir.sequence">
+        <field name="name">Borrow Seq.</field>
+        <field name="code">borrow-seq</field>
+        <field name="prefix">B</field>
+        <field name="padding">4</field>
+    </record>
+    </data>
+
+    <data>
+        <record id="action_library_membership_sequence" model="ir.sequence">
+        <field name="name">Membership Seq.</field>
+        <field name="code">membership-seq</field>
+        <field name="prefix">M</field>
+        <field name="padding">4</field>
+    </record>
+    </data>
+</odoo>

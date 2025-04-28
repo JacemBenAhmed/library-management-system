@@ -1,0 +1,1209 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* My_Library
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-29 08:36+0000\n"
+"PO-Revision-Date: 2024-07-29 08:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Daily Fine Rate</span>"
+msgstr "<span class=\"o_form_label\">معدل الغرامة اليومية</span>"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Renewal Amount Semestry</span>"
+msgstr "<span class=\"o_form_label\">مبلغ التجديد نصف السنوي</span>"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Renewal Amount Yearly</span>"
+msgstr "<span class=\"o_form_label\">مبلغ التجديد السنوي</span>"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">renewal amount monthly</span>"
+msgstr "<span class=\"o_form_label\">مبلغ التجديد الشهري</span>"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.library_author_view_form
+msgid "<span class=\"o_stat_text\">Books</span>"
+msgstr "<span class=\"o_stat_text\">الكتب</span>"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.member_view_form
+msgid "<span class=\"o_stat_text\">Borrowed Book</span>"
+msgstr "<span class=\"o_stat_text\">الكتاب المستعار</span>"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.res_config_settings_view_form
+msgid "<span> Dinar</span>"
+msgstr "<span>دينار</span>"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.borrow_book_report_template
+msgid "<span>Date From  : </span>"
+msgstr "<span>تاريخ من: </span>"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.borrow_book_report_template
+msgid "<span>Date To  : </span>"
+msgstr "<span>تاريخ إلى: </span>"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.borrow_book_report_template
+msgid "<span>Members Email  : </span>"
+msgstr "<span>بريد الأعضاء الإلكتروني: </span>"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.borrow_book_report_template
+msgid "<span>Members Name  : </span>"
+msgstr "<span>اسم الأعضاء: </span>"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.borrow_book_report_template
+msgid "<span>Membership Expiry Date  : </span>"
+msgstr "<span>تاريخ انتهاء العضوية: </span>"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.borrow_book_report_template
+msgid "<span>book ISBN : </span>"
+msgstr "<span>رقم الكتاب الدولي: </span>"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.borrow_book_report_template
+msgid "<span>book title : </span>"
+msgstr "<span>عنوان الكتاب: </span>"
+
+#. module: My_Library
+#: model:mail.template,body_html:My_Library.member_mail_template
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #FFFFFF; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                    <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: #FFFFFF; color: #454748; border-collapse:separate;\">\n"
+"\n"
+"\n"
+"\n"
+"                                <tbody>\n"
+"                                    <!-- HEADER -->\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\">\n"
+"                                                        <span style=\"font-size: 10px;\">Library Member</span>\n"
+"                                                        <br>\n"
+"                                                        <span style=\"font-size: 20px; font-weight: bold;\">\n"
+"                                                            <t t-out=\"object.name or ''\"></t>\n"
+"                                                        </span>\n"
+"                                                    </td>\n"
+"                                                    <td valign=\"middle\" align=\"right\">\n"
+"                                                        <img t-attf-src=\"/logo.png?company={{ user.company_id.id }}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" t-att-alt=\"user.company_id.name\">\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td colspan=\"2\" style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\">\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <!-- CONTENT -->\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            عزيزي/عزيزتي <t t-out=\"object.name or ''\"></t>,\n"
+"                                                            <br>\n"
+"                                                            <br>\n"
+"                                                            نأمل أن تجد هذا البريد الإلكتروني في أتم الصحة.\n"
+"\n"
+"                                                            هذا تذكير ودي بأن الكتاب <t t-out=\"object.mail_book_title or ''\"></t> الذي استعرته\n"
+"                                                            من مكتبتنا يجب إعادته خلال يومين. يرجى التأكد من إعادة الكتاب قبل <t t-out=\"object.mail_date_to or ''\"></t> لتجنب\n"
+"                                                            أي غرامات تأخير.\n"
+"\n"
+"                                                            مع أطيب التحيات,\n"
+"                                                            <br>\n"
+"\n"
+"                                                            إذا لم تكن تتوقع هذا، يمكنك تجاهل هذا البريد الإلكتروني بأمان.\n"
+"                                                            <br>\n"
+"                                                            <br>\n"
+"                                                            شكراً,\n"
+"                                                            <t t-if=\"user.signature\">\n"
+"                                                                <br>\n"
+"                                                                <t t-out=\"user.signature or ''\">--<br><t t-out=\"user.name or ''\"></t>\n"
+"                                                                </t>\n"
+"                                                            </t>\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\">\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <!-- FOOTER -->\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\" align=\"left\">\n"
+"                                                        <t t-out=\"object.company_id.name or ''\">شركتك</t>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\" align=\"left\" style=\"opacity: 0.7;\">\n"
+"                                                        <t t-out=\"object.company_id.phone or ''\">+1 650-123-4567</t>\n"
+"\n"
+"                                                        <t t-if=\"object.company_id.email\">\n"
+"                                                            |\n"
+"                                                            <a t-att-href=\"'mailto:%s' % object.company_id.email\" style=\"text-decoration:none; color: #454748;\" t-out=\"object.company_id.email or ''\">\n"
+"                                                                info@yourcompany.com\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                        <t t-if=\"object.company_id.website\">\n"
+"                                                            |\n"
+"                                                            <a t-att-href=\"'%s' % object.company_id.website\" style=\"text-decoration:none; color: #454748;\" t-out=\"object.company_id.website or ''\">\n"
+"                                                                http://www.example.com\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+msgstr ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #FFFFFF; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                    <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: #FFFFFF; color: #454748; border-collapse:separate;\">\n"
+"\n"
+"\n"
+"\n"
+"                                <tbody>\n"
+"                                    <!-- HEADER -->\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\">\n"
+"                                                        <span style=\"font-size: 10px;\">عضو المكتبة</span>\n"
+"                                                        <br>\n"
+"                                                        <span style=\"font-size: 20px; font-weight: bold;\">\n"
+"                                                            <t t-out=\"object.name or ''\"></t>\n"
+"                                                        </span>\n"
+"                                                    </td>\n"
+"                                                    <td valign=\"middle\" align=\"right\">\n"
+"                                                        <img t-attf-src=\"/logo.png?company={{ user.company_id.id }}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" t-att-alt=\"user.company_id.name\">\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td colspan=\"2\" style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\">\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <!-- CONTENT -->\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            عزيزي/عزيزتي <t t-out=\"object.name or ''\"></t>,\n"
+"                                                            <br>\n"
+"                                                            <br>\n"
+"                                                            نأمل أن تجد هذا البريد الإلكتروني في أتم الصحة.\n"
+"\n"
+"                                                            هذا تذكير ودي بأن الكتاب <t t-out=\"object.mail_book_title or ''\"></t> الذي استعرته\n"
+"                                                            من مكتبتنا يجب إعادته خلال يومين. يرجى التأكد من إعادة الكتاب قبل <t t-out=\"object.mail_date_to or ''\"></t> لتجنب\n"
+"                                                            أي غرامات تأخير.\n"
+"\n"
+"                                                            مع أطيب التحيات,\n"
+"                                                            <br>\n"
+"\n"
+"                                                            إذا لم تكن تتوقع هذا، يمكنك تجاهل هذا البريد الإلكتروني بأمان.\n"
+"                                                            <br>\n"
+"                                                            <br>\n"
+"                                                            شكراً,\n"
+"                                                            <t t-if=\"user.signature\">\n"
+"                                                                <br>\n"
+"                                                                <t t-out=\"user.signature or ''\">--<br><t t-out=\"user.name or ''\"></t>\n"
+"                                                                </t>\n"
+"                                                            </t>\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\">\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <!-- FOOTER -->\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\" align=\"left\">\n"
+"                                                        <t t-out=\"object.company_id.name or ''\">شركتك</t>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\" align=\"left\" style=\"opacity: 0.7;\">\n"
+"                                                        <t t-out=\"object.company_id.phone or ''\">+1 650-123-4567</t>\n"
+"\n"
+"                                                        <t t-if=\"object.company_id.email\">\n"
+"                                                            |\n"
+"                                                            <a t-att-href=\"'mailto:%s' % object.company_id.email\" style=\"text-decoration:none; color: #454748;\" t-out=\"object.company_id.email or ''\">\n"
+"                                                                info@yourcompany.com\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                        <t t-if=\"object.company_id.website\">\n"
+"                                                            |\n"
+"                                                            <a t-att-href=\"'%s' % object.company_id.website\" style=\"text-decoration:none; color: #454748;\" t-out=\"object.company_id.website or ''\">\n"
+"                                                                http://www.example.com\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__message_needaction
+#: model:ir.model.fields,field_description:My_Library.field_library_book__message_needaction
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__message_needaction
+msgid "Action Needed"
+msgstr "الإجراء مطلوب"
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__activity_ids
+#: model:ir.model.fields,field_description:My_Library.field_library_book__activity_ids
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__activity_exception_decoration
+#: model:ir.model.fields,field_description:My_Library.field_library_book__activity_exception_decoration
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "تزيين استثناء النشاط"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__activity_state
+#: model:ir.model.fields,field_description:My_Library.field_library_book__activity_state
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__activity_type_icon
+#: model:ir.model.fields,field_description:My_Library.field_library_book__activity_type_icon
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.library_book_view_form
+msgid "Additional Info"
+msgstr "معلومات إضافية"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__library_book__category__adventure
+msgid "Adventure"
+msgstr "مغامرة"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.library_borrow_book_view_form
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__message_attachment_count
+#: model:ir.model.fields,field_description:My_Library.field_library_book__message_attachment_count
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_book__author_id
+#: model_terms:ir.ui.view,arch_db:My_Library.library_book_view_form
+msgid "Author"
+msgstr "مؤلف"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.library_book_view_form
+msgid "Author Info"
+msgstr "معلومات المؤلف"
+
+#. module: My_Library
+#: model:ir.actions.act_window,name:My_Library.action_library_author
+#: model:ir.ui.menu,name:My_Library.menu_library_author
+msgid "Authors"
+msgstr "المؤلفين"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__library_book__category__auto_biography
+msgid "Auto Biography"
+msgstr "سيرة ذاتية"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__library_book__states__available
+msgid "Available"
+msgstr "متاح"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.view_library_author_kanban
+#: model_terms:ir.ui.view,arch_db:My_Library.view_library_book_kanban
+msgid "Avatar"
+msgstr "صورة رمزية"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__biography
+#: model:ir.model.fields.selection,name:My_Library.selection__library_book__category__biography
+msgid "Biography"
+msgstr "سيرة ذاتية"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.member_view_form
+msgid "Block"
+msgstr "كتلة"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__res_partner__states__blocked
+msgid "Blocked"
+msgstr "محظور"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__book_id
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__book_ids
+#: model:ir.model.fields,field_description:My_Library.field_res_users__book_ids
+msgid "Book"
+msgstr "كتاب"
+#. module: My_Library
+#: model:ir.model,name:My_Library.model_library_author
+msgid "Book Author"
+msgstr "مؤلف الكتاب"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.borrow_book_report_template
+#: model_terms:ir.ui.view,arch_db:My_Library.library_borrow_book_view_form
+msgid "Book Details"
+msgstr "تفاصيل الكتاب"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.library_author_view_form
+msgid "Book Info"
+msgstr "معلومات الكتاب"
+
+#. module: My_Library
+#: model:ir.actions.act_window,name:My_Library.action_library_book
+#: model:ir.ui.menu,name:My_Library.menu_library_books
+msgid "Books"
+msgstr "الكتب"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.view_library_author_graph
+#: model_terms:ir.ui.view,arch_db:My_Library.view_library_book_graph
+msgid "Books Graph"
+msgstr "رسم بياني للكتب"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_book__books_states
+msgid "Books States"
+msgstr "حالات الكتب"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__books_written
+msgid "Books Written"
+msgstr "الكتب المكتوبة"
+
+#. module: My_Library
+#: model:ir.actions.act_window,name:My_Library.action_library_borrow_book
+#: model:ir.model.fields,field_description:My_Library.field_library_book__borrow_book_ids
+#: model:ir.ui.menu,name:My_Library.menu_library_borrow_book
+msgid "Borrow Book"
+msgstr "استعارة كتاب"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.borrow_book_report_template
+msgid "Borrow Book Report"
+msgstr "تقرير استعارة الكتاب"
+
+#. module: My_Library
+#: model:ir.actions.report,name:My_Library.patients_report
+msgid "Borrow Book report"
+msgstr "تقرير استعارة الكتاب"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.library_borrow_book_view_form
+msgid "Borrow Details"
+msgstr "تفاصيل الاستعارة"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.library_borrow_book_view_form
+msgid "Borrow The Book"
+msgstr "استعارة الكتاب"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__library_borrow_book__states__borrowed
+msgid "Borrowed"
+msgstr "مستعار"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__borrowed_book_ids
+#: model:ir.model.fields,field_description:My_Library.field_res_users__borrowed_book_ids
+msgid "Borrowed Book"
+msgstr "كتاب مستعار"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.borrow_book_report_template
+msgid "Borrowed Details"
+msgstr "تفاصيل الاستعارة"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.view_books_search
+msgid "By Author"
+msgstr "حسب المؤلف"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.view_books_search
+msgid "By Publication Date"
+msgstr "حسب تاريخ النشر"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_book__category
+msgid "Category"
+msgstr "فئة"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__library_book__category__children_book
+msgid "Children Book"
+msgstr "كتاب للأطفال"
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: My_Library
+#: model:ir.model,name:My_Library.model_res_config_settings
+msgid "Config Settings"
+msgstr "إعدادات التهيئة"
+
+#. module: My_Library
+#: model:ir.model,name:My_Library.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__create_uid
+#: model:ir.model.fields,field_description:My_Library.field_library_book__create_uid
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__create_uid
+#: model:ir.model.fields,field_description:My_Library.field_library_membership_wizard__create_uid
+msgid "Created by"
+msgstr "أنشأ بواسطة"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__create_date
+#: model:ir.model.fields,field_description:My_Library.field_library_book__create_date
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__create_date
+#: model:ir.model.fields,field_description:My_Library.field_library_membership_wizard__create_date
+msgid "Created on"
+msgstr "تاريخ الإنشاء"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__currency_id
+#: model:ir.model.fields,field_description:My_Library.field_res_users__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_config_settings__daily_fine_rate
+msgid "Daily Fine Rate"
+msgstr "معدل الغرامة اليومية"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__date_from
+msgid "Date From"
+msgstr "التاريخ من"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__date_to
+msgid "Date To"
+msgstr "التاريخ إلى"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__delay_penalty
+#: model:ir.model.fields,field_description:My_Library.field_res_users__delay_penalty
+msgid "Delay Penalty"
+msgstr "غرامة التأخير"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__display_name
+#: model:ir.model.fields,field_description:My_Library.field_library_book__display_name
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__display_name
+#: model:ir.model.fields,field_description:My_Library.field_library_membership_wizard__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__library_borrow_book__states__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__library_book__category__educational
+msgid "Educational"
+msgstr "تعليمي"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__member_email
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#. module: My_Library
+#: model:ir.ui.view,arch_db:My_Library.view_membership_wizard_form
+msgid "Expiry Action"
+msgstr "إجراء الانتهاء"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_membership_wizard__expiry_date
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__expiry_date
+#: model:ir.model.fields,field_description:My_Library.field_res_users__expiry_date
+msgid "Expiry Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_membership_wizard__expiry_email
+msgid "Expiry Email"
+msgstr "بريد إلكتروني للانتهاء"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__library_book__category__fiction
+msgid "Fiction"
+msgstr "خيال"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__message_follower_ids
+#: model:ir.model.fields,field_description:My_Library.field_library_book__message_follower_ids
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__message_partner_ids
+#: model:ir.model.fields,field_description:My_Library.field_library_book__message_partner_ids
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (شركاء)"
+
+#. module: My_Library
+#: model:ir.model.fields,help:My_Library.field_library_author__activity_type_icon
+#: model:ir.model.fields,help:My_Library.field_library_book__activity_type_icon
+#: model:ir.model.fields,help:My_Library.field_library_borrow_book__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "رمز Font Awesome على سبيل المثال fa-tasks"
+
+#. module: My_Library
+#: model:ir.ui.view,arch_db:My_Library.library_author_view_form
+#: model:ir.ui.view,arch_db:My_Library.library_book_view_form
+#: model:ir.ui.view,arch_db:My_Library.member_view_form
+msgid "General Info"
+msgstr " معلومات عامة"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__has_message
+#: model:ir.model.fields,field_description:My_Library.field_library_book__has_message
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__has_message
+msgid "Has Message"
+msgstr "يوجد رسالة"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__id
+#: model:ir.model.fields,field_description:My_Library.field_library_book__id
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__id
+#: model:ir.model.fields,field_description:My_Library.field_library_membership_wizard__id
+msgid "ID"
+msgstr "رقم التعريف"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__isbn
+msgid "ISBN"
+msgstr "رقم ISBN"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__activity_exception_icon
+#: model:ir.model.fields,field_description:My_Library.field_library_book__activity_exception_icon
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__activity_exception_icon
+msgid "Icon"
+msgstr "أيقونة"
+#. module: My_Library
+#: model:ir.model.fields,help:My_Library.field_library_author__activity_exception_icon
+#: model:ir.model.fields,help:My_Library.field_library_book__activity_exception_icon
+#: model:ir.model.fields,help:My_Library.field_library_borrow_book__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "رمز للإشارة إلى نشاط استثنائي."
+
+#. module: My_Library
+#: model:ir.model.fields,help:My_Library.field_library_author__message_needaction
+#: model:ir.model.fields,help:My_Library.field_library_book__message_needaction
+#: model:ir.model.fields,help:My_Library.field_library_borrow_book__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم التحقق، فإن الرسائل الجديدة تتطلب انتباهك."
+
+#. module: My_Library
+#: model:ir.model.fields,help:My_Library.field_library_author__message_has_error
+#: model:ir.model.fields,help:My_Library.field_library_book__message_has_error
+#: model:ir.model.fields,help:My_Library.field_library_borrow_book__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم التحقق، فإن بعض الرسائل تحتوي على خطأ في التسليم."
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__image
+#: model:ir.model.fields,field_description:My_Library.field_library_book__author_img
+#: model:ir.model.fields,field_description:My_Library.field_library_book__image
+#: model:ir.model.fields,field_description:My_Library.field_library_book__member_image
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__book_image
+msgid "Image"
+msgstr "صورة"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__message_is_follower
+#: model:ir.model.fields,field_description:My_Library.field_library_book__message_is_follower
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__message_is_follower
+msgid "Is Follower"
+msgstr "هل هو متابع"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author____last_update
+#: model:ir.model.fields,field_description:My_Library.field_library_book____last_update
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book____last_update
+#: model:ir.model.fields,field_description:My_Library.field_library_membership_wizard____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__write_uid
+#: model:ir.model.fields,field_description:My_Library.field_library_book__write_uid
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__write_uid
+#: model:ir.model.fields,field_description:My_Library.field_library_membership_wizard__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__write_date
+#: model:ir.model.fields,field_description:My_Library.field_library_book__write_date
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__write_date
+#: model:ir.model.fields,field_description:My_Library.field_library_membership_wizard__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: My_Library
+#: model:ir.ui.menu,name:My_Library.menu_library_root
+#: model_terms:ir.ui.view,arch_db:My_Library.res_config_settings_view_form
+msgid "Library"
+msgstr "المكتبة"
+
+#. module: My_Library
+#: model:ir.model,name:My_Library.model_library_book
+msgid "Library Books"
+msgstr "كتب المكتبة"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.res_config_settings_view_form
+msgid "Library Management"
+msgstr "إدارة المكتبة"
+
+#. module: My_Library
+#: model:ir.model,name:My_Library.model_library_borrow_book
+msgid "Library borrow Book"
+msgstr "استعارة كتاب من المكتبة"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__mail_book_title
+#: model:ir.model.fields,field_description:My_Library.field_res_users__mail_book_title
+msgid "Mail Book Title"
+msgstr "عنوان الكتاب في البريد"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__mail_date_to
+#: model:ir.model.fields,field_description:My_Library.field_res_users__mail_date_to
+msgid "Mail Date To"
+msgstr "تاريخ البريد إلى"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__message_main_attachment_id
+#: model:ir.model.fields,field_description:My_Library.field_library_book__message_main_attachment_id
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__max
+msgid "Max"
+msgstr "الحد الأقصى"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_book__member_id
+#: model:ir.model.fields,field_description:My_Library.field_library_membership_wizard__member_ids
+msgid "Member"
+msgstr "عضو"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.library_borrow_book_view_form
+msgid "Member Details"
+msgstr "تفاصيل العضو"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__members_image
+msgid "Member Image"
+msgstr "صورة العضو"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.library_book_view_form
+msgid "Member Info"
+msgstr "معلومات العضو"
+#. module: My_Library
+#: model:mail.template,name:My_Library.member_mail_template
+msgid "Member Template"
+msgstr "قالب العضو"
+
+#. module: My_Library
+#: model:mail.template,subject:My_Library.member_mail_template
+msgid "Member details"
+msgstr "تفاصيل العضو"
+
+#. module: My_Library
+#: model:ir.actions.act_window,name:My_Library.action_memberss
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__members_id
+#: model:ir.ui.menu,name:My_Library.menu_library_members
+msgid "Members"
+msgstr "الأعضاء"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.borrow_book_report_template
+msgid "Members Details"
+msgstr "تفاصيل الأعضاء"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__membership_id
+#: model:ir.model.fields,field_description:My_Library.field_res_users__membership_id
+#: model_terms:ir.ui.view,arch_db:My_Library.member_view_form
+msgid "Membership"
+msgstr "العضوية"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__res_partner__states__active
+msgid "Membership Active"
+msgstr "العضوية نشطة"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.member_view_form
+msgid "Membership Details"
+msgstr "تفاصيل العضوية"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_membership_wizard__membership_number
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__membership_number
+#: model:ir.model.fields,field_description:My_Library.field_res_users__membership_number
+msgid "Membership Number"
+msgstr "رقم العضوية"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__res_partner__states__terminated
+msgid "Membership Terminated"
+msgstr "العضوية منتهية"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_membership_wizard__membership_type
+msgid "Membership Type"
+msgstr "نوع العضوية"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__message_has_error
+#: model:ir.model.fields,field_description:My_Library.field_library_book__message_has_error
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسائل"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__message_ids
+#: model:ir.model.fields,field_description:My_Library.field_library_book__message_ids
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__library_membership_wizard__membership_type__monthly
+msgid "Monthly"
+msgstr "شهري"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__my_activity_date_deadline
+#: model:ir.model.fields,field_description:My_Library.field_library_book__my_activity_date_deadline
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "موعد نهائي لنشاطي"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__name
+#: model:ir.model.fields,field_description:My_Library.field_library_book__member_name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.view_library_author_kanban
+msgid "Name :"
+msgstr "الاسم:"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_book__nb_book_available
+msgid "Nb Book Available"
+msgstr "عدد الكتب المتاحة"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__nb_borrowed_day
+msgid "Nb Borrowed Day"
+msgstr "عدد أيام الإعارة"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__nb_days_late
+#: model:ir.model.fields,field_description:My_Library.field_res_users__nb_days_late
+msgid "Nb Days Late"
+msgstr "عدد الأيام المتأخرة"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__nb_of_borrowed_book
+#: model:ir.model.fields,field_description:My_Library.field_res_users__nb_of_borrowed_book
+msgid "Nb Of Borrowed Book"
+msgstr "عدد الكتب المستعارة"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__activity_calendar_event_id
+#: model:ir.model.fields,field_description:My_Library.field_library_book__activity_calendar_event_id
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "الحدث التالي في التقويم"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__activity_date_deadline
+#: model:ir.model.fields,field_description:My_Library.field_library_book__activity_date_deadline
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__activity_summary
+#: model:ir.model.fields,field_description:My_Library.field_library_book__activity_summary
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__activity_type_id
+#: model:ir.model.fields,field_description:My_Library.field_library_book__activity_type_id
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__number_books
+msgid "Nombre of books written"
+msgstr "عدد الكتب المؤلفة"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__library_book__states__not_available
+msgid "Not Available"
+msgstr "غير متاح"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__message_needaction_counter
+#: model:ir.model.fields,field_description:My_Library.field_library_book__message_needaction_counter
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__message_has_error_counter
+#: model:ir.model.fields,field_description:My_Library.field_library_book__message_has_error_counter
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: My_Library
+#: model:ir.model.fields,help:My_Library.field_library_author__message_needaction_counter
+#: model:ir.model.fields,help:My_Library.field_library_book__message_needaction_counter
+#: model:ir.model.fields,help:My_Library.field_library_borrow_book__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تتطلب إجراء"
+
+#. module: My_Library
+#: model:ir.model.fields,help:My_Library.field_library_author__message_has_error_counter
+#: model:ir.model.fields,help:My_Library.field_library_book__message_has_error_counter
+#: model:ir.model.fields,help:My_Library.field_library_borrow_book__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__library_borrow_book__states__overdue
+msgid "Overdue"
+msgstr "متأخر"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_book__publication_date
+msgid "Publication Date"
+msgstr "تاريخ النشر"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__ref
+msgid "Ref"
+msgstr "المرجع"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_membership_wizard__renewal_amount
+msgid "Renewal Amount"
+msgstr "مبلغ التجديد"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_config_settings__renewal_amount_monthly
+msgid "Renewal Amount Monthly"
+msgstr "مبلغ التجديد الشهري"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_config_settings__renewal_amount_semestry
+msgid "Renewal Amount Semestry"
+msgstr "مبلغ التجديد نصف السنوي"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_config_settings__renewal_amount_yearly
+msgid "Renewal Amount Yearly"
+msgstr "مبلغ التجديد السنوي"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.view_membership_wizard_form
+msgid "Renewal Details"
+msgstr "تفاصيل التجديد"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_author__activity_user_id
+#: model:ir.model.fields,field_description:My_Library.field_library_book__activity_user_id
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__return_date
+msgid "Return Date"
+msgstr "تاريخ الإرجاع"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.library_borrow_book_view_form
+msgid "Return The Book"
+msgstr "إرجاع الكتاب"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__library_borrow_book__states__returned
+msgid "Returned"
+msgstr "تمت إعادته"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__library_membership_wizard__membership_type__semestry
+msgid "Semestry"
+msgstr "نصف سنوي"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.member_view_form
+msgid "Send Mail"
+msgstr "إرسال بريد"
+
+#. module: My_Library
+#: model:mail.template,description:My_Library.member_mail_template
+msgid "Sent to member who didn't return the book yet"
+msgstr "مرسل إلى العضو الذي لم يرجع الكتاب بعد"
+
+#. module: My_Library
+#: model:ir.actions.act_window,name:My_Library.library_config_settings_action
+#: model:ir.ui.menu,name:My_Library.library_config_settings_menu
+msgid "Settings"
+msgstr "الإعدادات"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_book__states
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__states
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__states
+#: model:ir.model.fields,field_description:My_Library.field_res_users__states
+msgid "States"
+msgstr "الحالات"
+
+#. module: My_Library
+#: model:ir.model.fields,help:My_Library.field_library_author__activity_state
+#: model:ir.model.fields,help:My_Library.field_library_book__activity_state
+#: model:ir.model.fields,help:My_Library.field_library_borrow_book__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة بناءً على الأنشطة\n"
+"متأخر: تاريخ الاستحقاق قد مر\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"مخطط: الأنشطة المستقبلية."
+
+#. module: My_Library
+#: model:ir.model.fields,help:My_Library.field_res_partner__user_id
+#: model:ir.model.fields,help:My_Library.field_res_users__user_id
+msgid "The internal user in charge of this contact."
+msgstr "المستخدم الداخلي المسؤول عن هذا الاتصال."
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_book__title
+msgid "Title"
+msgstr "العنوان"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.view_library_book_kanban
+msgid "Title :"
+msgstr "العنوان:"
+
+#. module: My_Library
+#: model:ir.model.fields,help:My_Library.field_library_author__activity_exception_decoration
+#: model:ir.model.fields,help:My_Library.field_library_book__activity_exception_decoration
+#: model:ir.model.fields,help:My_Library.field_library_borrow_book__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي على السجل."
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.member_view_form
+msgid "Unblock"
+msgstr "إلغاء الحظر"
+
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_book__update
+msgid "Update"
+msgstr "تحديث"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__update1
+#: model:ir.model.fields,field_description:My_Library.field_res_users__update1
+msgid "Update1"
+msgstr "تحديث1"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__update2
+#: model:ir.model.fields,field_description:My_Library.field_res_users__update2
+msgid "Update2"
+msgstr "تحديث2"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_book__user_id
+#: model:ir.model.fields,field_description:My_Library.field_library_borrow_book__user_id
+#: model:ir.model.fields,field_description:My_Library.field_res_partner__user_id
+#: model:ir.model.fields,field_description:My_Library.field_res_users__user_id
+msgid "User"
+msgstr "المستخدم"
+
+#. module: My_Library
+#: model:ir.model.fields.selection,name:My_Library.selection__library_membership_wizard__membership_type__yearly
+msgid "Yearly"
+msgstr "سنوي"
+
+#. module: My_Library
+#: model:ir.model.fields,field_description:My_Library.field_library_book__book_stock
+msgid "books in stock"
+msgstr "كتب في المخزون"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.view_membership_wizard_form
+msgid "cancel"
+msgstr "إلغاء"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.view_membership_wizard_form
+msgid "confirm"
+msgstr "تأكيد"
+
+#. module: My_Library
+#: model:ir.actions.server,name:My_Library.action_delay_penalty_ir_actions_server
+#: model:ir.cron,cron_name:My_Library.action_delay_penalty
+msgid "delay.penalty"
+msgstr "عقوبة التأخير"
+
+#. module: My_Library
+#: model:ir.model.constraint,message:My_Library.constraint_library_book_check_isbn_not_negative
+msgid "isbn must be positive"
+msgstr "رقم ISBN يجب أن يكون إيجابيًا"
+
+#. module: My_Library
+#: model:ir.model,name:My_Library.model_library_membership_wizard
+msgid "library.membership.wizard"
+msgstr "ساحر العضوية في المكتبة"
+
+#. module: My_Library
+#: model:ir.actions.server,name:My_Library.action_member_block_ir_actions_server
+#: model:ir.cron,cron_name:My_Library.action_member_block
+msgid "member.block"
+msgstr "حظر العضو"
+
+#. module: My_Library
+#: model:ir.actions.server,name:My_Library.action_member_mail_ir_actions_server
+#: model:ir.cron,cron_name:My_Library.action_member_mail
+msgid "member.mail"
+msgstr "بريد العضو"
+
+#. module: My_Library
+#: model_terms:ir.ui.view,arch_db:My_Library.view_membership_wizard_form
+msgid "membership wizard"
+msgstr "ساحر العضوية"
+
+#. module: My_Library
+#: model:ir.model.constraint,message:My_Library.constraint_library_membership_wizard_unique_membership_number
+msgid "membership_number already exists !"
+msgstr "رقم العضوية موجود بالفعل!"
+
+#. module: My_Library
+#: model:ir.actions.server,name:My_Library.states_overdue_ir_actions_server
+#: model:ir.cron,cron_name:My_Library.states_overdue
+msgid "states.overdue"
+msgstr "حالات متأخرة"

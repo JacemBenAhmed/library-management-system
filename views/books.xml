@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_library_book" model="ir.actions.act_window">
+        <field name="name">Books</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">library.book</field>
+        <field name="view_mode">tree,kanban,form,graph</field>
+    </record>
+
+    <menuitem
+            id="menu_library_books"
+            parent="menu_library_root"
+            name="Books"
+            action="action_library_book"
+            sequence="10"/>
+
+    <record id="library_book_view_form" model="ir.ui.view">
+        <field name="name">library.book.form</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="states" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button name="action_open_authors" type="object" icon="fa-user" string="Author" groups="My_Library.library_manager_group"/>
+                    </div>
+                    <div class="oe_title">
+                        <label for="title"/>
+                        <h1>
+                            <field name="title"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="General Info">
+                            <field name="book_stock"/>
+                            <field name="nb_book_available"/>
+                            <field name="publication_date"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group string="Additional Info">
+                            <field name="image"/>
+                            <field name="category"/>
+                        </group>
+                        <group string="Author Info ">
+                            <field name="author_id"/>
+                            <field name="author_img" widget="image" style="width:100px;height:100px"/>
+                        </group>
+                    </group>
+                </sheet>
+                 <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="library_book_view_tree" model="ir.ui.view">
+        <field name="name">library.book.tree</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title"/>
+                <field name="publication_date"/>
+                <field name="user_id" widget="many2one_avatar"/>
+                <field name="states" decoration-success="states =='available'" decoration-danger="states =='not_available'" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_books_search" model="ir.ui.view">
+        <field name="name">library.book.search</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="title"/>
+                <filter name="Available" string="Available" domain="[('states','=','available')]"/>
+                <filter name="Borrowed" string="Not Available" domain="[('states','=','not_available')]"/>
+                <filter name="group_authors" string="By Author" context="{'group_by':'author_id'}"/>
+                <filter name="group_publication_date" string="By Publication Date"
+                        context="{'group_by':'publication_date'}"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="view_library_book_kanban" model="ir.ui.view">
+        <field name="name">library.book.kanban</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="title"/>
+                <field name="states"/>
+                <field name="id"/>
+                <field name="image"/>
+                <field name="author_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('library.book','image', record.id.raw_value)" alt="Avatar"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        <field name="image"/>
+                                    </li>
+                                    <li>
+                                        Title :
+                                        <field name="title"/>
+                                    </li>
+                                    <li>
+                                        States :
+                                        <field name="states" decoration-success="states =='available'" decoration-danger="states =='not_available'" widget="badge"/>
+                                    </li>
+                                    <li>
+                                        author :
+                                        <field name="author_id"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="view_library_book_graph" model="ir.ui.view">
+        <field name="name">library.book.graph</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <graph string="Books Graph">
+                <field name="title"/>
+
+            </graph>
+        </field>
+    </record>
+
+
+    <record id="action_library_book_states" model="ir.cron">
+        <field name="name">library.book.states</field>
+        <field name="model_id" ref="model_library_book"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+        <field name="active">1</field>
+        <field name="code">
+            model.book_states()
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.library</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="90"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+
+                    <div class="app_settings_block" data-string="Library" id="library" string="Library" data-key="My_Library">
+                        <h2>Library Management</h2>
+                        <div class="row mt16 o_settings_container" id="library_setting">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">Daily Fine Rate</span>
+                                    <div class="text-muted content-group mt16">
+                                        <field name="daily_fine_rate" class="text-center" style="width: 10%; min-width: 4rem;" />
+                                        <span> Dinar</span>
+                                    </div>
+                                    <span class="o_form_label">renewal amount monthly</span>
+                                    <div class="text-muted content-group mt16">
+                                        <field name="renewal_amount_monthly" class="text-center" style="width: 10%; min-width: 4rem;" />
+                                        <span> Dinar</span>
+                                    </div>
+                                    <span class="o_form_label">Renewal Amount Semestry</span>
+                                    <div class="text-muted content-group mt16">
+                                        <field name="renewal_amount_semestry" class="text-center" style="width: 10%; min-width: 4rem;" />
+                                        <span> Dinar</span>
+                                    </div>
+                                    <span class="o_form_label">Renewal Amount Yearly</span>
+                                    <div class="text-muted content-group mt16">
+                                        <field name="renewal_amount_yearly" class="text-center" style="width: 10%; min-width: 4rem;" />
+                                        <span> Dinar</span>
+                                    </div>
+                                    <span class="o_form_label">penalty days mail</span>
+                                    <div class="text-muted content-group mt16">
+                                        <field name="penalty_days_mail" class="text-center" style="width: 10%; min-width: 4rem;" />
+                                        <span> Days</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="library_config_settings_action" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'My_Library', 'bin_size': False}</field>
+        </record>
+
+        <menuitem id="library_config_settings_menu"
+                  name="Settings"
+                  parent="menu_library_root"
+                  action="library_config_settings_action"
+                  sequence="100"/>
+    </data>
+</odoo>
