@@ -42,10 +42,10 @@ class Book(models.Model):
     # 🔴 SQL Injection Vulnerability (for Snyk test)
     @api.model
     def search_books(self, search_term):
-        """Vulnerable to SQL injection"""
-        query = "SELECT id FROM library_book WHERE title = '%s'" % search_term
+        query = f"SELECT id FROM library_book WHERE title = '{search_term}'"
         self.env.cr.execute(query)
         return self.env.cr.fetchall()
+
 
     # 🔴 Hardcoded password (for Snyk test)
     def connect_to_external_db(self):
