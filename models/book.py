@@ -39,12 +39,7 @@ class Book(models.Model):
         ('educational', 'Educational')
     ])
 
-    # 🔴 SQL Injection Vulnerability (for Snyk test)
-    @api.model
-    def search_books(self, search_term):
-        query = f"SELECT id FROM library_book WHERE title = '{search_term}'"
-        self.env.cr.execute(query)
-        return self.env.cr.fetchall()
+   
 
 
     # 🔴 Hardcoded password (for Snyk test)
