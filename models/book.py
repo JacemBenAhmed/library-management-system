@@ -4,8 +4,8 @@ from odoo.exceptions import ValidationError
 
 class Book(models.Model):
     """
-            Modèle représentant un livre dans la bibliothèque.
-            Hérite des fonctionnalités de suivi d'activité et de messagerie d'Odoo
+    Modèle représentant un livre dans la bibliothèque.
+    Hérite des fonctionnalités de suivi d'activité et de messagerie d'Odoo
     """
 
     _name = 'library.book'
@@ -17,7 +17,10 @@ class Book(models.Model):
     publication_date = fields.Date(readonly=1)
     book_stock = fields.Integer('books in stock', required=1)
     image = fields.Image()
-    states = fields.Selection([('available', 'Available'), ('not_available', 'Not Available')], default='available')
+    states = fields.Selection([
+        ('available', 'Available'),
+        ('not_available', 'Not Available')
+    ], default='available')
     author_id = fields.Many2one('library.author')
     books_states = fields.Boolean()
     member_id = fields.Many2one('res.partner')
@@ -26,42 +29,44 @@ class Book(models.Model):
     author_img = fields.Image(related='author_id.image')
     user_id = fields.Many2one('res.users', 'User', readonly=1)
     borrow_book_ids = fields.One2many('library.borrow.book', 'book_id')
-    nb_book_available = fields.Integer(computed='_compute_nb_book_available', readonly=1)
-    category = fields.Selection([('auto_biography', 'Auto Biography'), ('biography', 'Biography'),
-                                 ('children_book', 'Children Book'), ('fiction', 'Fiction'), ('adventure', 'Adventure'),
-                                 ('educational', 'Educational')])
+    nb_book_available = fields.Integer(compute='_compute_nb_book_available', readonly=1)
+    category = fields.Selection([
+        ('auto_biography', 'Auto Biography'),
+        ('biography', 'Biography'),
+        ('children_book', 'Children Book'),
+        ('fiction', 'Fiction'),
+        ('adventure', 'Adventure'),
+        ('educational', 'Educational')
+    ])
 
-    #Vulnerability **
+    # 🔴 SQL Injection Vulnerability (for Snyk test)
     @api.model
     def search_books(self, search_term):
-    """Vulnerable to SQL injection"""
-    query = "SELECT id FROM library_book WHERE title = '%s'" % search_term
-    self.env.cr.execute(query)
-    return self.env.cr.fetchall()
+        """Vulnerable to SQL injection"""
+        query = "SELECT id FROM library_book WHERE title = '%s'" % search_term
+        self.env.cr.execute(query)
+        return self.env.cr.fetchall()
 
-    #
+    # 🔴 Hardcoded password (for Snyk test)
     def connect_to_external_db(self):
-    db_password = 'SuperSecret123!'  # Hardcoded password
-    # ... connection logic ...
+        db_password = 'SuperSecret123!'  # Hardcoded password
+        # Simulate a DB connection logic (not implemented)
+        return db_password
 
-
-    @api.constrains('book_stock')
+    # 🔧 Corrected from @api.constrains to @api.depends
+    @api.depends('book_stock')
     def _compute_nb_book_available(self):
         """
-                Méthode de contrainte calculant le nombre de livres disponibles.
-                Ce nombre est calculé en soustrayant le nombre de livres empruntés du stock total
+        Calcule le nombre de livres disponibles.
         """
-
         for rec in self:
             res = self.env['library.borrow.book'].search_count([('book_id', '=', rec.id)])
             rec.nb_book_available = rec.book_stock - res
 
     def action_open_authors(self):
         """
-               Met à jour l'état du livre en fonction du nombre de livres disponibles.
-               Si le nombre de livres disponibles est supérieur à 0, l'état passe à 'Available', sinon à 'Not Available'
+        Ouvre la fiche auteur liée.
         """
-
         action = self.env['ir.actions.actions']._for_xml_id('My_Library.action_library_author')
         view_id = self.env.ref('My_Library.library_author_view_form').id
         action['res_id'] = self.author_id.id
@@ -71,10 +76,8 @@ class Book(models.Model):
     @api.constrains('nb_book_available')
     def state_available_not_available(self):
         """
-                Met à jour l'état du livre en fonction du nombre de livres disponibles.
-                Si le nombre de livres disponibles est supérieur à 0, l'état passe à 'Available', sinon à 'Not Available'.
-         """
-
+        Met à jour l'état du livre en fonction du nombre de livres disponibles.
+        """
         for rec in self:
             if rec.nb_book_available > 0:
                 rec.states = 'available'
@@ -83,8 +86,8 @@ class Book(models.Model):
 
     def book_states(self):
         """
-                Met à jour l'état du livre automatiquement en fonction du nombre de livres disponibles.
-         """
+        Met à jour l'état du livre automatiquement en fonction du nombre de livres disponibles.
+        """
         books = self.search([])
         for rec in books:
             if rec.nb_book_available > 0:
@@ -92,16 +95,12 @@ class Book(models.Model):
             else:
                 rec.states = 'not_available'
 
-
     @api.model_create_multi
     def create(self, vals):
         """
-                Méthode de création de livres.
-                Initialise la date de publication au jour actuel et assigne l'utilisateur actuel comme créateur
-         """
-
+        Création de livre avec date et utilisateur actuel.
+        """
         res = super(Book, self).create(vals)
         res.publication_date = fields.Date.today()
         res.user_id = res.env.uid
         return res
-
