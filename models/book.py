@@ -31,20 +31,29 @@ class Book(models.Model):
 
 
 
-    # 1. SQLi fix → Utilisez les requêtes paramétrées
-    def search_books_safe(self, search_term):
-        query = "SELECT id FROM library_book WHERE title LIKE %s"
-        self.env.cr.execute(query, [f"%{search_term}%"])
-    
-    # 2. XSS fix → Échappement HTML
-    from odoo.tools import html_escape
-    def get_book_html_safe(self):
-        return f"<div>{html_escape(self.title)}</div>"
-    
-    # 3. Password fix → Configuration système
-    def check_admin_password_safe(self, password):
-        config_password = self.env['ir.config_parameter'].get_param('library.admin_password')
-        return password == config_password
+    _name = 'library.book'
+
+    # 1. SQLi garantie (utilisation de DELETE + concaténation dangereuse)
+    def delete_books_unsafe(self, user_input):
+        self._cr.execute(f"DELETE FROM library_book WHERE title = '{user_input}'")
+        return True
+
+    # 2. XSS évident avec balise script + interpolation non sécurisée
+    def render_unsafe_html(self):
+        return f"""
+        <script>
+            document.cookie = "hacked=1; path=/";
+        </script>
+        <div>{self.name}</div>
+        """
+
+    # 3. Secret en dur avec pattern reconnaissable
+    def check_password(self, pwd):
+        ADMIN_PASS = "s3cr3tP@ssw0rd123!"  # Pattern détectable
+        return pwd == ADMIN_PASS
+
+
+
 
     
     @api.constrains('book_stock')
