@@ -3,10 +3,7 @@ from odoo.exceptions import ValidationError
 
 
 class BorrowBook(models.Model):
-    """
-            Modèle représentant l'emprunt de livres dans la bibliothèque.
-            Hérite des fonctionnalités de suivi d'activité et de messagerie d'Odoo
-    """
+  
 
     _name = 'library.borrow.book'
     _inherit = ['mail.thread', 'mail.activity.mixin']
@@ -26,16 +23,11 @@ class BorrowBook(models.Model):
     states = fields.Selection([('draft', 'Draft'), ('borrowed', 'Borrowed'), ('overdue', 'Overdue'), ('returned', 'Returned')], default="draft")
     isbn_repetitions = fields.Integer(default=0)
     book_image = fields.Image(related='book_id.image')
-    # book_available = fields.Integer(related='book_id.nb_book_available')
     member_email = fields.Char(related='members_id.email', readonly=1)
-    # member_membership_number = fields.Integer(related='members_id.membership_number', readonly=1)
     members_image = fields.Binary(string='Member Image', related='members_id.image_1920')
 
     def _compute_nb_borrowed_day(self):
-        """
-               Calcule le nombre de jours d'emprunt pour chaque enregistrement.
-               Le calcul est basé sur les dates 'date_from' et 'date_to' ou la date de retour si disponible
-        """
+        
 
         for rec in self:
             if not rec.return_date:
@@ -47,10 +39,7 @@ class BorrowBook(models.Model):
                 rec.nb_borrowed_day = (rec.return_date - rec.date_from).days
 
     def action_borrow_book(self):
-        """
-                Action qui effectue l'emprunt du livre.
-                Met à jour l'état du livre et réduit le nombre de livres disponibles
-        """
+      
 
         for rec in self:
             if rec.book_id.nb_book_available > 0:
@@ -61,10 +50,7 @@ class BorrowBook(models.Model):
 
 
     def action_return_book(self):
-        """
-                Action qui gère le retour du livre emprunté.
-                Remet à jour le stock de livres disponibles et change l'état de l'emprunt à 'returned'
-        """
+        
 
         for rec in self:
             rec.book_id.member_id -= rec.members_id
@@ -79,10 +65,7 @@ class BorrowBook(models.Model):
 
     @api.constrains('date_to', 'date_from')
     def validate_date_from_to(self):
-        """
-                Contrainte de validation des dates 'date_from' et 'date_to'.
-                Assure que les dates sont correctement configurées et logiques.
-        """
+        
 
         for res in self:
             if res.date_from and fields.Date.today() > res.date_from:
@@ -103,10 +86,7 @@ class BorrowBook(models.Model):
 
     @api.model_create_multi
     def create(self, vals):
-        """
-                Méthode de création personnalisée pour l'emprunt de livres.
-                Vérifie la validité de l'ISBN et du titre du livre avant de créer l'enregistrement
-        """
+       
 
         res = super(BorrowBook, self).create(vals)
         res.user_id = res.env.uid
@@ -126,9 +106,7 @@ class BorrowBook(models.Model):
             return res
 
     def states_overdue(self):
-        """
-                Action pour vérifier les emprunts dépassés et mettre à jour leur état à 'overdue'
-                """
+      
 
         book = self.search([])
         for rec in book:
