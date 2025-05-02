@@ -30,7 +30,32 @@ class Book(models.Model):
 
 
 
-    admin_password = fields.Char('Admin Password (Demo)', help="DEMO ONLY: This is intentionally vulnerable for security testing")
+
+    def search_books_dangerous(self, search_term):
+        """Méthode dangereuse avec injection SQL"""
+        # DANGER: Construction directe de requête SQL
+        query = f"SELECT id FROM library_book WHERE title LIKE '%{search_term}%'"
+        self.env.cr.execute(query)  # Snyk détectera cette vulnérabilité
+        return self.env.cr.fetchall()
+
+    # 2. Méthode vulnérable aux XSS
+    def get_book_html(self):
+        """Retourne du HTML non échappé"""
+        dangerous_html = f"""
+        <div class="book">
+            <h1>{self.title}</h1>
+            <script>alert('XSS Attack!')</script>
+        </div>
+        """
+        return dangerous_html  # Snyk détectera le XSS
+
+    # 3. Méthode avec mot de passe en dur
+    def check_admin_password(self, password):
+        """Vérification de mot de passe dangereuse"""
+        # DANGER: Mot de passe en dur dans le code
+        hardcoded_password = "admin123"  # Snyk détectera ce secret
+        return password == hardcoded_password
+
     
     @api.constrains('book_stock')
     def _compute_nb_book_available(self):
