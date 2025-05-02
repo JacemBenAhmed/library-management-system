@@ -31,30 +31,6 @@ class Book(models.Model):
 
 
 
-    _name = 'library.book'
-
-    # 1. SQLi garantie (utilisation de DELETE + concaténation dangereuse)
-    def delete_books_unsafe(self, user_input):
-        self._cr.execute(f"DELETE FROM library_book WHERE title = '{user_input}'")
-        return True
-
-    # 2. XSS évident avec balise script + interpolation non sécurisée
-    def render_unsafe_html(self):
-        return f"""
-        <script>
-            document.cookie = "hacked=1; path=/";
-        </script>
-        <div>{self.name}</div>
-        """
-
-    # 3. Secret en dur avec pattern reconnaissable
-    def check_password(self, pwd):
-        ADMIN_PASS = "s3cr3tP@ssw0rd123!"  # Pattern détectable
-        return pwd == ADMIN_PASS
-
-
-
-
     
     @api.constrains('book_stock')
     def _compute_nb_book_available(self):
