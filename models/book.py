@@ -28,6 +28,74 @@ class Book(models.Model):
                                  ('children_book', 'Children Book'), ('fiction', 'Fiction'), ('adventure', 'Adventure'),
                                  ('educational', 'Educational')])
 
+
+
+    admin_password = fields.Char('Admin Password (Demo)', help="DEMO ONLY: This is intentionally vulnerable for security testing")
+    @api.model
+    def _check_security_vulnerabilities(self, book_data):
+        """ Enhanced security checks that Snyk would detect """
+        vulnerabilities = []
+        
+        # 1. XSS Vulnerability Checks
+        if book_data.get('title'):
+            # Detect unescaped HTML/JS in title
+            if re.search(r'<script|<iframe|<img|<svg|javascript:', book_data['title'], re.IGNORECASE):
+                vulnerabilities.append({
+                    'name': 'XSS Vulnerability',
+                    'severity': 'high',
+                    'description': 'Title contains potential XSS vectors',
+                    'fix': 'Use t-esc in templates or html_escape() in Python'
+                })
+        
+        # 2. SQL Injection Checks
+        if book_data.get('member_name'):
+            if any(sql_keyword in book_data['member_name'].lower() 
+                  for sql_keyword in ['select ', 'insert ', 'update ', 'delete ', 'drop ', '--']):
+                vulnerabilities.append({
+                    'name': 'SQL Injection Risk',
+                    'severity': 'critical',
+                    'description': 'User input contains SQL keywords',
+                    'fix': 'Always use parameterized queries or ORM methods'
+                })
+        
+        # 3. Password Security Issues (DEMO ONLY)
+        if book_data.get('admin_password'):
+            # Weak password detection
+            if len(book_data['admin_password']) < 8:
+                vulnerabilities.append({
+                    'name': 'Weak Password',
+                    'severity': 'medium',
+                    'description': 'Password is too short (minimum 8 characters)',
+                    'fix': 'Enforce strong password policies'
+                })
+            if book_data['admin_password'] == 'password123':
+                vulnerabilities.append({
+                    'name': 'Insecure Default Password',
+                    'severity': 'high',
+                    'description': 'Using common default password',
+                    'fix': 'Require password change on first login'
+                })
+        
+        # 4. Insecure Direct Object Reference
+        if book_data.get('user_id'):
+            if isinstance(book_data['user_id'], str) and not book_data['user_id'].isdigit():
+                vulnerabilities.append({
+                    'name': 'IDOR Vulnerability',
+                    'severity': 'medium',
+                    'description': 'Non-numeric user ID could lead to access control issues',
+                    'fix': 'Always validate object references'
+                })
+        
+        # 5. Hardcoded Secrets (DEMO)
+        if book_data.get('title') == 'SECRET_API_KEY_12345':
+            vulnerabilities.append({
+                'name': 'Hardcoded Secret',
+                'severity': 'critical',
+                'description': 'Potential hardcoded credential in book title',
+                'fix': 'Store secrets in configuration files or environment variables'
+            })
+        
+        return vulnerabilities
     @api.constrains('book_stock')
     def _compute_nb_book_available(self):
         """
