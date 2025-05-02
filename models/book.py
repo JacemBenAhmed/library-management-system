@@ -3,10 +3,7 @@ from odoo.exceptions import ValidationError
 
 
 class Book(models.Model):
-    """
-            Modèle représentant un livre dans la bibliothèque.
-            Hérite des fonctionnalités de suivi d'activité et de messagerie d'Odoo
-    """
+    
 
     _name = 'library.book'
     _inherit = ['mail.thread', 'mail.activity.mixin']
